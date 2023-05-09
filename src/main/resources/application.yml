@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+        
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+  servlet:
+    multipart:
+      max-file-size: 20MB # 사진 업로드 최대 20MB (초과하면 MaxUploadSizeExceedException발생) 
+      max-request-size: 20MB
+          
+  datasource:
+    url: jdbc:mysql://localhost:3306/bank?serverTimezone=Asia/Seoul
+    driver-class-name: com.mysql.cj.jdbc.Driver 
+    username: root
+    password: asd1234
+#  sql: 
+#    init:
+#      schema-locations:
+#      - classpath:db/table.sql
+#      data-locations:
+#      - classpath:db/data.sql
+#  h2:
+#    console: 
+#      enabled: true
+#  output:
+#    ansi:
+#      enabled: always
+      
+mybatis:
+  mapper-locations:
+  - classpath:mapper/**.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    
